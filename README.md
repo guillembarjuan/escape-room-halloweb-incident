@@ -25,7 +25,17 @@ L'equip de **Forensic Software** ha estat activat per investigar l'incident, rec
 
 ### Fase 1
 
-_(pendent d'omplir)_
+### Agent 2 – Miquel Vico (projecte/defense-script)
+- He explorat la branca remota `projecte/spectral-data` amb `git checkout
+origin/projecte/spectral-data`.
+- Pista trobada: `data/ghost_hosts.csv` té les columnes ID, Hostname, IP,
+Tipus_Amenaca, Nivell_Risc i Estat, separades per comes i en UTF-8.
+- Pista trobada: segons `docs/contracte-dades.md`, Nivell_Risc pot ser Baix,
+Mitja, Alt o Critic.
+- Decisió: l'script `scripts/exorcism.ps1` aïlla només els hosts amb risc Alt
+o Critic.
+- He provat l'script amb una còpia temporal del CSV i genera una regla de
+bloqueig per a cada host crític.
 
 ### Fase 2
 
@@ -36,6 +46,10 @@ _(pendent d'omplir)_
 _(pendent d'omplir)_
 
 ## Registre de tasques per membre
+
+- **Miquel Vico (Agent 2):** exploració de la branca de dades, script
+d'aïllament `scripts/exorcism.ps1`, revisió de les Pull Requests de l'Agent
+1.
 
 | Data | Agent | Tasca | Branca/PR | Estat |
 |---|---|---|---|---|
