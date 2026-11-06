@@ -56,3 +56,8 @@ foreach ($h in $hosts) {
 ## Referència
 
 Dades font: `data/ghost_hosts.csv` (branca `projecte/spectral-data`).
+
+## Actualització de protocol (Issue #5)
+- **Port_Infectat**: enter, port pel qual entra l'amenaça.
+- **Ports crítics** (l'script els aïlla): 22 (SSH), 445 (SMB), 3306 (MySQL), 3389 (RDP)
+- Qualsevol altre port es considera **no crític** i l'script el descarta.

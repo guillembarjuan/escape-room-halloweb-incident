@@ -63,6 +63,14 @@ He adaptat scripts/exorcism.ps1: ara només aïlla hosts Alt/Critic amb port cr�
   i descarta la resta.
 Provat amb el CSV del hotfix: els hosts amb ports no crítics queden descartats.
 
+### Agent 1 - Guillem Barjuan (projecte/spectral-data)
+
+- He creat la Issue d'emergència [#5](../../issues/5) ("Emergència: canvi de vector d'atac"), assignada als dos agents.
+- A la branca `hotfix/protocol-update` he afegit la columna `Port_Infectat` a `data/ghost_hosts.csv`, coordinant-me amb l'Agent 2: jo vaig preparar les dades i ell va definir els ports crítics al contracte i va adaptar `scripts/exorcism.ps1`. El CSV barreja ports crítics (22, 445, 3306, 3389) i no crítics (80, 443, 8080), i el host `GH-003` (risc `Critic`, port 443) serveix per comprovar que l'script descarta els ports no crítics.
+- Durant la revisió vaig detectar línies truncades a `scripts/exorcism.ps1` (errors de sintaxi) i les vaig corregir a la mateixa branca abans de fusionar. Amb el CSV nou, l'script aïlla 4 hosts i en descarta 4.
+- La branca `feature/nightmare-code` no va aparèixer al repositori, així que no hi havia cap codi per aïllar. Cap codi infectat ha arribat a `main` i, per tant, no ha calgut fer cap revert.
+- Un cop aprovada i fusionada la PR del hotfix ([#7](../../pull/7)), la Issue #5 es va tancar automàticament i vaig publicar el tag `v0.2-beta`.
+
 ### Fase 3
 
 _(pendent d'omplir)_
@@ -81,5 +89,10 @@ d'aïllament `scripts/exorcism.ps1`, revisió de les Pull Requests de l'Agent
 | 2026-11-03 | Agent 1 | Crear l'esquema inicial de `data/ghost_hosts.csv` amb 8 hosts d'exemple | `projecte/spectral-data` | Fet |
 | 2026-11-03 | Agent 1 | Redactar el contracte de dades per a l'Agent 2 (`docs/contracte-dades.md`) | `projecte/spectral-data` | Fet |
 | 2026-11-03 | Agent 1 | Documentar les troballes de la Fase 1 a la bitàcola | `projecte/spectral-data` | Fet |
+| 2026-11-06 | Agent 1 | Fusionar les PR #1 i #3 i publicar el tag `v0.1-alpha` | `main` | Fet |
+| 2026-11-06 | Agent 1 | Crear la Issue d'emergència #5 i afegir la columna `Port_Infectat` al CSV | `hotfix/protocol-update` | Fet |
+| 2026-11-06 | Agent 1 | Corregir les línies truncades de `scripts/exorcism.ps1` i fusionar la PR #7 | `hotfix/protocol-update` | Fet |
+| 2026-11-06 | Agent 1 | Comprovar `feature/nightmare-code` (no va aparèixer) i publicar el tag `v0.2-beta` | `main` | Fet |
+| 2026-11-06 | Agent 1 | Documentar la Fase 2 a la bitàcola i actualitzar el dashboard | `projecte/spectral-data` | Fet |
 | | Agent 2 (MiguelVico) | Crear `projecte/defense-script` i desenvolupar `scripts/exorcism.ps1` a partir del contracte de dades | `projecte/defense-script` | Pendent |
 | | Agent 1 + Agent 2 | Mantenir `reports/dashboard.md` actualitzat amb l'estat de totes les branques | `feature/status-dashboard` | En curs |
