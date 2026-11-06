@@ -54,6 +54,15 @@ bloqueig per a cada host crític.
 
 ### Fase 2
 
+### Agent 2 - Miquel Vico (projecte/defense-script)
+
+
+Coordinació amb l'Agent 1 a la branca hotfix/protocol-update per la Issue #N.
+He afegit al contracte de dades la llista de ports crítics: 22, 445, 3306 i 3389.
+He adaptat scripts/exorcism.ps1: ara només aïlla hosts Alt/Critic amb port crític
+  i descarta la resta.
+Provat amb el CSV del hotfix: els hosts amb ports no crítics queden descartats.
+
 ### Agent 1 - Guillem Barjuan (projecte/spectral-data)
 
 - He creat la Issue d'emergència [#5](../../issues/5) ("Emergència: canvi de vector d'atac"), assignada als dos agents.
